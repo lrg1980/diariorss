@@ -7,7 +7,6 @@ const Header = (props) => {
                     <a className="brand-logo center">{props.titulo}</a>
                </div>
           </nav>
-          
      );
 };
      export default Header;
