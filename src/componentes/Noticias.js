@@ -7,7 +7,12 @@ class Noticias extends Component {
           
           return ( 
                <div className="row">
-                    <Noticia />
+                    {this.props.noticias.map(noticia => (
+                         <Noticia
+                              key={noticia.url}
+                              noticia={noticia}
+                         />
+                    ))}
                </div>
            )
      }
