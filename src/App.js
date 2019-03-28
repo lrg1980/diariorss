@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './componentes/Header';
 import Noticias from './componentes/Noticias';
+import Formulario from './componentes/Formulario';
 
 
 class App extends Component {
@@ -12,8 +13,11 @@ class App extends Component {
     this.consultarNoticias();
   }
 
-  consultarNoticias = () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=ar&category=general&apiKey=b6befcf773db43efae73f7c59d23215b`;
+  consultarNoticias = (categoria = 'general') => {
+    
+
+
+    let url = `https://newsapi.org/v2/top-headlines?country=ar&category=${categoria}&apiKey=b6befcf773db43efae73f7c59d23215b`;
     
     fetch(url)
       .then(respuesta => {
@@ -33,6 +37,7 @@ class App extends Component {
         <Header 
           titulo='Noticias RSS' />
         <div className="container white contenedor-noticias">
+          <Formulario consultarNoticias={this.consultarNoticias}/>
           <Noticias
           noticias = {this.state.noticias} />
         </div>
